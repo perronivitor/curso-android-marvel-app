@@ -3,6 +3,7 @@ buildscript {
     ext.kotlin_version = "1.7.10"
     ext.nav_version = '2.4.1'
     ext.hilt_version = '2.43.2'
+    ext.detekt_version = '1.18.0'
     repositories {
         google()
         mavenCentral()
@@ -17,6 +18,11 @@ buildscript {
         // in the individual module build.gradle files
     }
 }
+
+plugins {
+    id "io.gitlab.arturbosch.detekt" version "$detekt_version"
+}
+
 
 allprojects {
     repositories {
