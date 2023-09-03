@@ -25,4 +25,14 @@ dependencies {
     val gsonVersion = "2.9.0"
     api("com.google.code.gson:gson:$gsonVersion")
 
+    //Paging3 Common
+    val pagingVersion = "3.1.1"
+    implementation("androidx.paging:paging-common-ktx:$pagingVersion")
+
+    //Javax Inject
+    implementation("javax.inject:javax.inject:1")
+
+    //Coroutines
+    val coroutinesVersion = "1.6.4"
+    api("org.jetbrains.kotlinx:kotlinx-coroutines-core:$coroutinesVersion")
 }
