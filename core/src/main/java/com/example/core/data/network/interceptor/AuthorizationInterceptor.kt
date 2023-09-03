@@ -14,14 +14,12 @@ class AuthorizationInterceptor(
     override fun intercept(chain: Interceptor.Chain): Response {
         val request = chain.request()
         val requestUrl = request.url
-
         val ts = calendar.toSeconds()
-
         val hash = "$ts$privateKey$publicKey".md5()
         val newUrl = requestUrl.newBuilder()
             .addQueryParameter(QUERY_PARAMETER_TS, ts)
             .addQueryParameter(QUERY_PARAMETER_API_KEY, publicKey)
-            .addQueryParameter(QUERY_PARAMETER_HASJ, hash)
+            .addQueryParameter(QUERY_PARAMETER_HASH, hash)
             .build()
 
         return chain.proceed(
@@ -43,7 +41,7 @@ class AuthorizationInterceptor(
     companion object {
         private const val QUERY_PARAMETER_TS = "ts"
         private const val QUERY_PARAMETER_API_KEY = "apikey"
-        private const val QUERY_PARAMETER_HASJ = "hash"
+        private const val QUERY_PARAMETER_HASH = "hash"
         private const val DIVIDER_MILLIS_FOR_SECONDS = 1000L
     }
 }
