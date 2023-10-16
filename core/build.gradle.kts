@@ -9,7 +9,6 @@ java {
 }
 
 dependencies {
-
     // OkHttp
     val okHttpVersion = "4.9.0"
     api(platform("com.squareup.okhttp3:okhttp-bom:$okHttpVersion"))
@@ -35,4 +34,8 @@ dependencies {
     //Coroutines
     val coroutinesVersion = "1.6.4"
     api("org.jetbrains.kotlinx:kotlinx-coroutines-core:$coroutinesVersion")
+
+    // Unit tests
+    testImplementation(project(":testing"))
+
 }
