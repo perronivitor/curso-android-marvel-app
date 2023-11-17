@@ -38,6 +38,8 @@ android {
         buildConfigField("String", "PRIVATE_KEY", apikeyProperties['PRIVATE_KEY'])
         buildConfigField("String", "BASE_URL", '"https://gateway.marvel.com/v1/public/"')
 
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+
         // The following argument makes the Android Test Orchestrator run its
         // "pm clear" command after each test invocation. This command ensures
         // that the app's state is completely cleared between tests.
